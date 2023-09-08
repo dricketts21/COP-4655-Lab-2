@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="168" id="94D-v4-GEh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="168" id="94D-v4-GEh" customClass="TrackCell" customModule="lab_tunley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="94D-v4-GEh" id="o6d-gP-TgE">
@@ -65,6 +65,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="vaT-NS-QX9" secondAttribute="bottom" constant="16" id="laF-Yl-Bqc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistNameLabel" destination="ThL-EE-48o" id="4hX-5V-GiT"/>
+                                            <outlet property="trackImageView" destination="ywB-Qg-Bjg" id="ZY7-BT-lGN"/>
+                                            <outlet property="trackNameLabel" destination="tqM-YU-Kng" id="gE0-cf-Uea"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
