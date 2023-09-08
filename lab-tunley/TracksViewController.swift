@@ -7,17 +7,15 @@
 
 import UIKit
 
-class TracksViewController: UIViewController {
-
-    // TODO: Pt 1 - Add a tracks property
+class TracksViewController: UIViewController, UITableViewDataSource {
+    
     var tracks : [Track] = []
 
-
-    // TODO: Pt 1 - Add table view outlet
-
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
         // TODO: Pt 1 - Set tracks property with mock tracks array
         tracks = Track.mockTracks
         print(tracks)
@@ -31,7 +29,15 @@ class TracksViewController: UIViewController {
 
     }
 
-    // TODO: Pt 1 - Add table view data source methods
 
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tracks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
+        let track = tracks[indexPath.row]
+        cell.configure(with: track)
+        return cell
+    }
 }
