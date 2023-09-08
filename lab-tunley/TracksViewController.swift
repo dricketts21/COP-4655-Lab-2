@@ -16,15 +16,25 @@ class TracksViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        // TODO: Pt 1 - Set tracks property with mock tracks array
         tracks = Track.mockTracks
         print(tracks)
 
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow{
+            tableView.deselectRow(at:indexPath, animated: true)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO: Pt 1 - Pass the selected track to the detail view controller
+        if let cell = sender as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell),
+           let detailViewController = segue.destination as? DetailViewController{
+            let track = tracks[indexPath.row]
+            detailViewController.track = track
+        }
 
 
     }
